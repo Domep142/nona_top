@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" href="css/css.css">
+    <html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {      /* позволяет изменять внешний вид пункта меню при наведении на него курсора мыши */
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head><div class="navbar">
+    <a href="index.html">о нас</a>
+    <a href="услуги.html">Услуги</a>
+    <a href="контакты.html">Контакты</a>
+    <a href="отзывы.html">Отзывы</a>
+</div>
+    
+        <div class="container">
+            <h1>Отзывы и Рейтинги</h1>
+            <form id="reviewForm">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" required>
+    
+                <label for="rating">Рейтинг:</label> /* код для отображения метки */
+                <select id="rating" required>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>   /* используется для указания вариантов ответа */                     
+                </select>
+    
+                <label for="review">Отзыв:</label>
+                <textarea id="review" required></textarea>
+    
+                <button type="submit">Отправить отзыв</button>
+            </form>
+    
+            <div id="reviews">{}
+                <h2>Отзывы:</h2>
+                <ul id="reviewList"></ul>
+            </div>
+        </div>
+    
+        <script> /* связывает html документ */
+            document.getElementById('reviewForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                const name = document.getElementById('name').value;
+                const rating = document.getElementById('rating').value;
+                const review = document.getElementById('review').value;
+    
+                const reviewList = document.getElementById('reviewList');
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${name}</strong> (${rating} звёзд): <p>${review}</p>`;
+                reviewList.appendChild(listItem);
+    
+                
+                this.reset();
+            })
+        </script>
+        <footer>
+            <p>&copy; 2023 Ваша Компания</p>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a>
+            <a href="#">Контакты</a>
+        </footer>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        </head>
+    </body>
+</head>
+</body>
+</html>
